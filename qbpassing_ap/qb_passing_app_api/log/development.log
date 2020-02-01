@@ -1,0 +1,927 @@
+  [1m[35m (124.8ms)[0m  [1m[35mCREATE DATABASE "qb_passing_app_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (103.5ms)[0m  [1m[35mCREATE DATABASE "qb_passing_app_api_test" ENCODING = 'unicode'[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2393480477686520355)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateQuarterbacks (20200201195315)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "quarterbacks" ("id" bigserial primary key, "team" character varying, "city" character varying, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200201195315"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateYards (20200201195448)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "yards" ("id" bigserial primary key, "highest" integer, "lowest" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200201195448"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddForeignKeyToYards (20200201195811)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2393480477686520355)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2393480477686520355)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddForeignKeyToYards (20200201195811)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2393480477686520355)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2393480477686520355)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddForeignKeyToYards (20200201195811)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mALTER TABLE "yards" ADD "quarterback_id" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200201195811"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-01 20:01:05.111399"], ["updated_at", "2020-02-01 20:01:05.111399"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(2393480477686520355)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Create (1.9ms)[0m  [1m[32mINSERT INTO "quarterbacks" ("team", "city", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team", "Chiefs"], ["city", "Kansas City"], ["name", "Patrick Mahomes"], ["created_at", "2020-02-01 20:18:40.177833"], ["updated_at", "2020-02-01 20:18:40.177833"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Create (0.3ms)[0m  [1m[32mINSERT INTO "quarterbacks" ("team", "city", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team", "49ers"], ["city", "San Francisco"], ["name", "Jimmy Garoppolo"], ["created_at", "2020-02-01 20:18:40.185008"], ["updated_at", "2020-02-01 20:18:40.185008"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Create (0.5ms)[0m  [1m[32mINSERT INTO "quarterbacks" ("team", "city", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team", "Chiefs"], ["city", "Kansas City"], ["name", "Patrick Mahomes"], ["created_at", "2020-02-01 20:19:20.292316"], ["updated_at", "2020-02-01 20:19:20.292316"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Create (0.4ms)[0m  [1m[32mINSERT INTO "quarterbacks" ("team", "city", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team", "49ers"], ["city", "San Francisco"], ["name", "Jimmy Garoppolo"], ["created_at", "2020-02-01 20:19:20.303663"], ["updated_at", "2020-02-01 20:19:20.303663"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.3ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mYard Create (0.9ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 68], ["lowest", 11], ["created_at", "2020-02-01 20:19:20.340109"], ["updated_at", "2020-02-01 20:19:20.340109"], ["quarterback_id", "1"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.2ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mYard Create (0.3ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 44], ["lowest", 10], ["created_at", "2020-02-01 20:19:20.347345"], ["updated_at", "2020-02-01 20:19:20.347345"], ["quarterback_id", "1"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.3ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mYard Create (0.3ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 83], ["lowest", 10], ["created_at", "2020-02-01 20:19:20.355379"], ["updated_at", "2020-02-01 20:19:20.355379"], ["quarterback_id", "1"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.2ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mYard Create (0.2ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 33], ["lowest", 7], ["created_at", "2020-02-01 20:19:20.361652"], ["updated_at", "2020-02-01 20:19:20.361652"], ["quarterback_id", "1"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.3ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mYard Create (0.2ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 31], ["lowest", 8], ["created_at", "2020-02-01 20:19:20.375008"], ["updated_at", "2020-02-01 20:19:20.375008"], ["quarterback_id", "1"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.2ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mYard Create (0.2ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 52], ["lowest", 7], ["created_at", "2020-02-01 20:19:20.381165"], ["updated_at", "2020-02-01 20:19:20.381165"], ["quarterback_id", "1"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.1ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mYard Create (0.3ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 21], ["lowest", 6], ["created_at", "2020-02-01 20:19:20.388016"], ["updated_at", "2020-02-01 20:19:20.388016"], ["quarterback_id", "1"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.1ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mYard Create (0.2ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 63], ["lowest", 8], ["created_at", "2020-02-01 20:19:20.394327"], ["updated_at", "2020-02-01 20:19:20.394327"], ["quarterback_id", "1"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.2ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mYard Create (0.3ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 31], ["lowest", 5], ["created_at", "2020-02-01 20:19:20.406343"], ["updated_at", "2020-02-01 20:19:20.406343"], ["quarterback_id", "1"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.2ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mYard Create (0.4ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 47], ["lowest", 6], ["created_at", "2020-02-01 20:19:20.418900"], ["updated_at", "2020-02-01 20:19:20.418900"], ["quarterback_id", "1"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.3ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mYard Create (0.3ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 48], ["lowest", 7], ["created_at", "2020-02-01 20:19:20.435170"], ["updated_at", "2020-02-01 20:19:20.435170"], ["quarterback_id", "1"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.1ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mYard Create (0.3ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 41], ["lowest", 10], ["created_at", "2020-02-01 20:19:20.447135"], ["updated_at", "2020-02-01 20:19:20.447135"], ["quarterback_id", "1"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.2ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mYard Create (0.4ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 19], ["lowest", 7], ["created_at", "2020-02-01 20:19:20.463992"], ["updated_at", "2020-02-01 20:19:20.463992"], ["quarterback_id", "1"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.2ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mYard Create (0.2ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 47], ["lowest", 7], ["created_at", "2020-02-01 20:19:20.469790"], ["updated_at", "2020-02-01 20:19:20.469790"], ["quarterback_id", "1"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.2ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mYard Create (0.2ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 48], ["lowest", 9], ["created_at", "2020-02-01 20:19:20.475108"], ["updated_at", "2020-02-01 20:19:20.475108"], ["quarterback_id", "1"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.1ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mYard Create (0.2ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 60], ["lowest", 8], ["created_at", "2020-02-01 20:19:20.480209"], ["updated_at", "2020-02-01 20:19:20.480209"], ["quarterback_id", "1"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.2ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mYard Create (0.3ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 39], ["lowest", 6], ["created_at", "2020-02-01 20:19:20.485522"], ["updated_at", "2020-02-01 20:19:20.485522"], ["quarterback_id", "2"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.1ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mYard Create (0.2ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 39], ["lowest", 11], ["created_at", "2020-02-01 20:19:20.490858"], ["updated_at", "2020-02-01 20:19:20.490858"], ["quarterback_id", "2"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.1ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mYard Create (0.3ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 27], ["lowest", 8], ["created_at", "2020-02-01 20:19:20.497737"], ["updated_at", "2020-02-01 20:19:20.497737"], ["quarterback_id", "2"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.1ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mYard Create (0.3ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 22], ["lowest", 6], ["created_at", "2020-02-01 20:19:20.503225"], ["updated_at", "2020-02-01 20:19:20.503225"], ["quarterback_id", "2"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.1ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mYard Create (0.2ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 45], ["lowest", 7], ["created_at", "2020-02-01 20:19:20.510503"], ["updated_at", "2020-02-01 20:19:20.510503"], ["quarterback_id", "2"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.1ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mYard Create (0.3ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 40], ["lowest", 7], ["created_at", "2020-02-01 20:19:20.515804"], ["updated_at", "2020-02-01 20:19:20.515804"], ["quarterback_id", "2"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.1ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mYard Create (0.2ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 29], ["lowest", 8], ["created_at", "2020-02-01 20:19:20.521708"], ["updated_at", "2020-02-01 20:19:20.521708"], ["quarterback_id", "2"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.2ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mYard Create (0.2ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 32], ["lowest", 8], ["created_at", "2020-02-01 20:19:20.528489"], ["updated_at", "2020-02-01 20:19:20.528489"], ["quarterback_id", "2"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.1ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mYard Create (0.2ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 30], ["lowest", 5], ["created_at", "2020-02-01 20:19:20.533715"], ["updated_at", "2020-02-01 20:19:20.533715"], ["quarterback_id", "2"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.1ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mYard Create (0.2ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 57], ["lowest", 9], ["created_at", "2020-02-01 20:19:20.539054"], ["updated_at", "2020-02-01 20:19:20.539054"], ["quarterback_id", "2"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.1ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mYard Create (0.3ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 61], ["lowest", 12], ["created_at", "2020-02-01 20:19:20.544460"], ["updated_at", "2020-02-01 20:19:20.544460"], ["quarterback_id", "2"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.1ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mYard Create (0.3ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 33], ["lowest", 7], ["created_at", "2020-02-01 20:19:20.549804"], ["updated_at", "2020-02-01 20:19:20.549804"], ["quarterback_id", "2"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.1ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mYard Create (0.3ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 75], ["lowest", 10], ["created_at", "2020-02-01 20:19:20.555367"], ["updated_at", "2020-02-01 20:19:20.555367"], ["quarterback_id", "2"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.1ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mYard Create (0.2ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 29], ["lowest", 5], ["created_at", "2020-02-01 20:19:20.561701"], ["updated_at", "2020-02-01 20:19:20.561701"], ["quarterback_id", "2"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.1ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mYard Create (0.2ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 46], ["lowest", 9], ["created_at", "2020-02-01 20:19:20.567015"], ["updated_at", "2020-02-01 20:19:20.567015"], ["quarterback_id", "2"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuarterback Load (0.1ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mYard Create (0.2ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 49], ["lowest", 13], ["created_at", "2020-02-01 20:19:20.572020"], ["updated_at", "2020-02-01 20:19:20.572020"], ["quarterback_id", "2"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mQuarterback Load (0.7ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mYard Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "yards" WHERE "yards"."quarterback_id" = $1 LIMIT $2[0m  [["quarterback_id", "1"], ["LIMIT", 1]]
+  [1m[36mYard Load (0.2ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  [1m[36mYard Load (0.2ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuarterback Load (0.3ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/quarterback" for ::1 at 2020-02-01 14:28:15 -0600
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/quarterback"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/quarterbacks" for ::1 at 2020-02-01 14:28:18 -0600
+Processing by QuarterbacksController#index as HTML
+  [1m[36mQuarterback Load (0.8ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks"[0m
+  ↳ app/controllers/quarterbacks_controller.rb:8:in `index'
+Completed 200 OK in 20ms (Views: 10.0ms | ActiveRecord: 6.2ms | Allocations: 5797)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 14:28:26 -0600
+Processing by QuarterbacksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.4ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:44:in `set_quarterback'
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 1137)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 14:30:51 -0600
+Processing by QuarterbacksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.2ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:45:in `set_quarterback'
+  [1m[36mYard Load (0.5ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:14:in `show'
+Completed 200 OK in 32ms (Views: 12.2ms | ActiveRecord: 5.7ms | Allocations: 12715)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-01 14:30:51 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 14:32:51 -0600
+Processing by QuarterbacksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.3ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:44:in `set_quarterback'
+  [1m[36mYard Load (0.2ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 37ms (Views: 0.2ms | ActiveRecord: 7.7ms | Allocations: 10398)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-01 14:32:51 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/quarterbacks/1/yards" for ::1 at 2020-02-01 14:50:04 -0600
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/quarterbacks/1/yards"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2020-02-01 14:50:04 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/quarterbacks/1/yards" for ::1 at 2020-02-01 14:56:42 -0600
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/quarterbacks/1/yards"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2020-02-01 14:56:42 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/quarterbacks/1/yards" for ::1 at 2020-02-01 14:57:38 -0600
+Processing by YardsController#create as */*
+  Parameters: {"yard"=>{"highest"=>"45", "lowest"=>"10"}, "quarterback_id"=>"1"}
+Completed 422 Unprocessable Entity in 35ms (Views: 0.2ms | ActiveRecord: 4.5ms | Allocations: 8862)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 14:57:49 -0600
+Processing by QuarterbacksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.4ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:44:in `set_quarterback'
+  [1m[36mYard Load (0.6ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 25ms (Views: 0.1ms | ActiveRecord: 5.0ms | Allocations: 8015)
+
+
+Started POST "/quarterbacks/2/yards" for ::1 at 2020-02-01 14:58:14 -0600
+Processing by YardsController#create as */*
+  Parameters: {"yard"=>{"highest"=>"45", "lowest"=>"10"}, "quarterback_id"=>"2"}
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 587)
+
+
+Started POST "/quarterbacks/2/yards" for ::1 at 2020-02-01 14:59:50 -0600
+Processing by YardsController#create as */*
+  Parameters: {"yard"=>{"highest"=>"45", "lowest"=>"10"}, "quarterback_id"=>"2"}
+Completed 422 Unprocessable Entity in 14ms (Views: 0.1ms | ActiveRecord: 2.9ms | Allocations: 4642)
+
+
+Started POST "/quarterbacks/2/yards" for ::1 at 2020-02-01 15:03:10 -0600
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by YardsController#create as */*
+  Parameters: {"yard"=>{"highest"=>"45", "lowest"=>"10"}, "quarterback_id"=>"2"}
+Completed 422 Unprocessable Entity in 24ms (Views: 0.5ms | ActiveRecord: 4.3ms | Allocations: 7517)
+
+
+Started POST "/quarterbacks/1/yards" for ::1 at 2020-02-01 15:04:29 -0600
+Processing by YardsController#create as */*
+  Parameters: {"yard"=>{"highest"=>"45", "lowest"=>"10"}, "quarterback_id"=>"1"}
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 586)
+
+
+Started POST "/quarterbacks/1/yards" for ::1 at 2020-02-01 15:07:06 -0600
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by YardsController#create as */*
+  Parameters: {"yard"=>{"highest"=>"45", "lowest"=>"10"}, "quarterback_id"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/yards_controller.rb:15:in `create'
+  [1m[36mQuarterback Load (0.4ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/yards_controller.rb:15:in `create'
+  [1m[36mYard Create (0.9ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 45], ["lowest", 10], ["created_at", "2020-02-01 21:07:06.162151"], ["updated_at", "2020-02-01 21:07:06.162151"], ["quarterback_id", "1"]]
+  ↳ app/controllers/yards_controller.rb:15:in `create'
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/yards_controller.rb:15:in `create'
+Completed 201 Created in 72ms (Views: 0.7ms | ActiveRecord: 12.7ms | Allocations: 13226)
+
+
+Started GET "/quarterbacks/1/yards" for ::1 at 2020-02-01 15:07:41 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/quarterbacks/1/yards"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/quarterbacks/1/yards" for ::1 at 2020-02-01 15:07:43 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/quarterbacks/1/yards"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/quarterbacks/2/yards" for ::1 at 2020-02-01 15:08:03 -0600
+Processing by YardsController#create as */*
+  Parameters: {"yard"=>{"highest"=>"45", "lowest"=>"10"}, "quarterback_id"=>"2"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/yards_controller.rb:15:in `create'
+  [1m[36mQuarterback Load (0.3ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/yards_controller.rb:15:in `create'
+  [1m[36mYard Create (0.4ms)[0m  [1m[32mINSERT INTO "yards" ("highest", "lowest", "created_at", "updated_at", "quarterback_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["highest", 45], ["lowest", 10], ["created_at", "2020-02-01 21:08:03.189242"], ["updated_at", "2020-02-01 21:08:03.189242"], ["quarterback_id", "2"]]
+  ↳ app/controllers/yards_controller.rb:15:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/yards_controller.rb:15:in `create'
+Completed 201 Created in 9ms (Views: 0.5ms | ActiveRecord: 1.3ms | Allocations: 3446)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:08:21 -0600
+Processing by QuarterbacksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.3ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.5ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 4391)
+
+
+Started GET "/quarterbacks/2" for ::1 at 2020-02-01 15:08:29 -0600
+Processing by QuarterbacksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuarterback Load (0.6ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.4ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "2"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 3326)
+
+
+Started GET "/quarterbacks" for ::1 at 2020-02-01 15:16:42 -0600
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuarterbacksController#index as HTML
+  [1m[36mQuarterback Load (0.5ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks"[0m
+  ↳ app/controllers/quarterbacks_controller.rb:8:in `index'
+  [1m[36mYard Load (0.4ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:8:in `index'
+  [1m[36mYard Load (0.3ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "2"]]
+  ↳ app/controllers/quarterbacks_controller.rb:8:in `index'
+  [1m[36mYard Load (0.3ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "3"]]
+  ↳ app/controllers/quarterbacks_controller.rb:8:in `index'
+  [1m[36mYard Load (0.1ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "4"]]
+  ↳ app/controllers/quarterbacks_controller.rb:8:in `index'
+Completed 200 OK in 65ms (Views: 0.1ms | ActiveRecord: 9.2ms | Allocations: 18338)
+
+
+Started GET "/yards/1" for ::1 at 2020-02-01 15:35:06 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/yards/1"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:35:25 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.4ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.5ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 22ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 3590)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:35:36 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.3ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (1.6ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 3345)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:37:51 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.4ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.3ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 3345)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:39:43 -0600
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.4ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.7ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 51ms (Views: 0.6ms | ActiveRecord: 8.8ms | Allocations: 13795)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:42:42 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.3ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.5ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 3347)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:44:27 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.5ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.5ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 3347)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:45:00 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (1.4ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.5ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 2.0ms | Allocations: 3347)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:45:59 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (1.0ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (1.8ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 2.8ms | Allocations: 3330)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:46:58 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.5ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.5ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 3330)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:47:43 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.3ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.3ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 3330)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:47:54 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.5ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.3ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 3347)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:48:15 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.3ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.4ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 3330)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:48:20 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.3ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.5ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 3330)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:49:08 -0600
+Started GET "/quarterbacks/2" for ::1 at 2020-02-01 15:49:08 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.4ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (1.0ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 3352)
+
+
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mQuarterback Load (0.6ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (1.6ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "2"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 34ms (Views: 0.2ms | ActiveRecord: 2.4ms | Allocations: 3454)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:49:19 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.6ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.5ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 1.2ms | Allocations: 3330)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:52:05 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (2.2ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (1.3ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 3.6ms | Allocations: 3330)
+
+
+Started GET "/quarterbacks/2" for ::1 at 2020-02-01 15:53:10 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mQuarterback Load (0.5ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.4ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "2"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 3331)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:53:15 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.7ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.5ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 1.2ms | Allocations: 3330)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:54:35 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.5ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.7ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 1.2ms | Allocations: 3330)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:57:30 -0600
+Started GET "/quarterbacks/2" for ::1 at 2020-02-01 15:57:30 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.8ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.6ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 3330)
+
+
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mQuarterback Load (0.7ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (1.2ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "2"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 2.0ms | Allocations: 3453)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:57:59 -0600
+Started GET "/quarterbacks/2" for ::1 at 2020-02-01 15:57:59 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"2"}
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (1.8ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mQuarterback Load (2.4ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mYard Load (0.4ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "2"]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 2.2ms | Allocations: 4406)
+
+
+  [1m[36mYard Load (3.9ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 6.4ms | Allocations: 6825)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:58:29 -0600
+Started GET "/quarterbacks/2" for ::1 at 2020-02-01 15:58:29 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mQuarterback Load (1.6ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mQuarterback Load (1.4ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mYard Load (0.3ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 4406)
+
+
+  [1m[36mYard Load (4.7ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "2"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 6.1ms | Allocations: 6825)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 15:59:46 -0600
+Started GET "/quarterbacks/2" for ::1 at 2020-02-01 15:59:46 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mQuarterback Load (0.8ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mQuarterback Load (1.0ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.9ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+  [1m[36mYard Load (1.0ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "2"]]
+Completed 200 OK in 19ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 4106)
+
+
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 24ms (Views: 0.1ms | ActiveRecord: 2.0ms | Allocations: 6777)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 16:04:33 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.3ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.3ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 3330)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 16:05:11 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.4ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.3ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 3330)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 16:05:11 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.4ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.3ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 3331)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 16:05:14 -0600
+Started GET "/quarterbacks/2" for ::1 at 2020-02-01 16:05:14 -0600
+Processing by QuarterbacksController#show as */*
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  Parameters: {"id"=>"2"}
+  [1m[36mQuarterback Load (0.6ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuarterback Load (0.4ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (1.1ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  [1m[36mYard Load (0.5ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "2"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 4614)
+
+
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 6644)
+
+
+Started GET "/quarterbacks/1" for ::1 at 2020-02-01 16:06:42 -0600
+Processing by QuarterbacksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mQuarterback Load (0.3ms)[0m  [1m[34mSELECT "quarterbacks".* FROM "quarterbacks" WHERE "quarterbacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quarterbacks_controller.rb:19:in `set_quarterback'
+  [1m[36mYard Load (0.2ms)[0m  [1m[34mSELECT "yards".* FROM "yards" WHERE "yards"."quarterback_id" = $1[0m  [["quarterback_id", "1"]]
+  ↳ app/controllers/quarterbacks_controller.rb:13:in `show'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 3330)
+
+

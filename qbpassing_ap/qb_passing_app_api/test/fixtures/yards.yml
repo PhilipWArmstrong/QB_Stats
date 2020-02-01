@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  highest: 1
+  lowest: 1
+
+two:
+  highest: 1
+  lowest: 1
